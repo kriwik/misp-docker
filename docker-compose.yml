@@ -23,7 +23,7 @@ services:
       - MISP_BASEURL=${MISP_BASEURL:-https://localhost}
       - POSTFIX_RELAY_HOST=${POSTFIX_RELAY_HOST:-relay.fqdn}
       - TIMEZONE=${TIMEZONE:-UTC}
-    entrypoint: "/web/wait-for-it.sh -t 0 -h ${MYSQL_HOST:-misp_db} -p 3306 -- /run.sh"
+    entrypoint: "web/wait-for-it.sh -t 0 -h ${MYSQL_HOST:-misp_db} -p 3306 -- /run.sh"
   db:
     container_name: misp_db
     image: mysql/mysql-server:5.7
